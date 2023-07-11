@@ -6,6 +6,7 @@ public class Obstacle : MonoBehaviour
 {
 
     private GameObject player;
+    [SerializeField] private float speed = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,9 @@ public class Obstacle : MonoBehaviour
         {
             Destroy(player.gameObject);
         }
+    }
+
+    private void Update() {
+        transform.Rotate(Vector3.forward * Time.deltaTime * speed);
     }
 }
